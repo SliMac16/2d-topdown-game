@@ -1,6 +1,6 @@
 #include "raylib.h"
 #include "raymath.h"
-#include "Character.cpp"
+#include "Character.h"
 
 int main(){
     const int windowWidth{1920};

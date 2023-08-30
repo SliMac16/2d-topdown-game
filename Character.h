@@ -2,6 +2,7 @@
 
 class Character{
     public:
+    Character();
     Vector2 getWorldPos() {return worldPos;}
     void setScreenPos(int winWidth, int winHeight);
     void tick(float deltaTime);
@@ -16,7 +17,9 @@ class Character{
     //animation:
     float runningTime{};
     int frame{};
-    const int MaxFrames{6};
-    const float updateTime{1.f/12.f};
-    const float speed{6.f};
+    int MaxFrames{6};
+    float updateTime{1.f/12.f};
+    float speed{6.f};
+    float width{};
+    float height{};
 };
