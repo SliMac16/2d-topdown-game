@@ -9,10 +9,9 @@ int main(){
 
     Texture2D map = LoadTexture("nature_tileset/WorldMap.png");
     Vector2 mapPos{0.0,0.0};
-    const float mapScale{3.0f};
+    const float mapScale{4.0f};
 
-    Character knight;
-    knight.setScreenPos(windowWidth,windowHeight);
+    Character knight(windowWidth, windowHeight);
 
     SetTargetFPS(60);
     while(!WindowShouldClose()){
