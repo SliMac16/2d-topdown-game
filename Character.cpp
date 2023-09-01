@@ -44,3 +44,12 @@ void Character::tick(float deltaTime)
         Rectangle dest{screenPos.x, screenPos.y, scale * width, scale * height};
         DrawTexturePro(texture, source, dest, Vector2{}, 0.f, WHITE);
 }
+
+Rectangle Character::GetCollisionRec(){
+    return Rectangle{
+        screenPos.x,
+        screenPos.y,
+        texture.width * scale,
+        texture.height * scale
+    };
+}

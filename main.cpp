@@ -17,8 +17,8 @@ int main(){
 
     Prop props[2]
     {
-        Prop{Vector2{600.f, 300.f}, LoadTexture("nature_tileset/Rock.png")},
-        Prop{Vector2{400.f, 500.f}, LoadTexture("nature_tileset/Log.png")}
+        Prop{Vector2{1200.f, 600.f}, LoadTexture("nature_tileset/Rock.png")},
+        Prop{Vector2{800.f, 1000.f}, LoadTexture("nature_tileset/Log.png")}
     };
     
 
@@ -32,6 +32,7 @@ int main(){
         // draw the map
         DrawTextureEx(map, mapPos, 0.0, mapScale,WHITE);
 
+        //draw the props
         for(auto prop : props)
         {
             prop.Render(knight.getWorldPos());
@@ -46,6 +47,15 @@ int main(){
             {
                 knight.undoMovement();
             }
+
+        //check collisions between Character:knight and Props
+        for(auto prop : props)
+        {
+            if(CheckCollisionRecs(knight.GetCollisionRec(), prop.GetCollisionRec(knight.getWorldPos())))
+            {
+                knight.undoMovement();
+            }
+        }
 
         EndDrawing();
     }
