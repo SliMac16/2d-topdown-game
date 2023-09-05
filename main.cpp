@@ -2,6 +2,7 @@
 #include "raymath.h"
 #include "Character.h"
 #include "Prop.h"
+#include "Enemy.h"
 
 int main(){
     const int windowWidth{1920};
@@ -20,9 +21,15 @@ int main(){
         Prop{Vector2{1200.f, 600.f}, LoadTexture("nature_tileset/Rock.png")},
         Prop{Vector2{800.f, 1000.f}, LoadTexture("nature_tileset/Log.png")}
     };
+
+    Enemy enemies[2]{
+        Enemy{Vector2{1400.f, 500.f}, LoadTexture("characters/knight_idle_spritesheet.png"), LoadTexture("characters/knight_run_spritesheet.png")},
+        Enemy{Vector2{1800.f, 1000.f}, LoadTexture("characters/knight_idle_spritesheet.png"), LoadTexture("characters/knight_run_spritesheet.png")}}
+    };
     
 
     SetTargetFPS(60);
+    
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground(WHITE);
