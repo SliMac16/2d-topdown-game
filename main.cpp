@@ -67,6 +67,7 @@ int main(){
         for(auto enemy : enemies)
         {
             enemy.tick(GetFrameTime());
+            enemy.setTarget(&knight);
         }
 
         EndDrawing();
