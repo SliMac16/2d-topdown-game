@@ -4,6 +4,7 @@
 #include "Prop.h"
 #include "Enemy.h"
 
+
 int main(){
     const int windowWidth{1920};
     const int windowHeight{1080};
@@ -22,14 +23,13 @@ int main(){
         Prop{Vector2{800.f, 1000.f}, LoadTexture("nature_tileset/Log.png")}
     };
 
-    Enemy enemies[2]{
-        Enemy{Vector2{1400.f, 500.f}, LoadTexture("characters/knight_idle_spritesheet.png"), LoadTexture("characters/knight_run_spritesheet.png")},
-        Enemy{Vector2{1800.f, 1000.f}, LoadTexture("characters/knight_idle_spritesheet.png"), LoadTexture("characters/knight_run_spritesheet.png")}}
+     Enemy enemies[2]{
+        Enemy{Vector2{1400.f, 800.f}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")},
+        Enemy{Vector2{700.f, 1500.f}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")}
     };
     
 
     SetTargetFPS(60);
-    
     while(!WindowShouldClose()){
         BeginDrawing();
         ClearBackground(WHITE);
@@ -62,6 +62,11 @@ int main(){
             {
                 knight.undoMovement();
             }
+        }
+
+        for(auto enemy : enemies)
+        {
+            enemy.tick(GetFrameTime());
         }
 
         EndDrawing();
