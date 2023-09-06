@@ -6,8 +6,8 @@
 
 
 int main(){
-    const int windowWidth{1920};
-    const int windowHeight{1080};
+    const int windowWidth{860};
+    const int windowHeight{720};
     InitWindow(windowWidth,windowHeight, "Top Down Game");
 
     Texture2D map = LoadTexture("nature_tileset/WorldMap.png");
@@ -24,8 +24,8 @@ int main(){
     };
 
      Enemy enemies[2]{
-        Enemy{Vector2{1400.f, 800.f}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")},
-        Enemy{Vector2{700.f, 1500.f}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")}
+        Enemy{Vector2{}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")},
+        Enemy{Vector2{}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")}
     };
     
 
