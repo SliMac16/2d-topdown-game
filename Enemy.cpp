@@ -11,11 +11,22 @@ Enemy::Enemy(Vector2 pos, Texture2D idle_texture, Texture2D run_texture)
 
     width = texture.width / MaxFrames;
     height =  texture.height;
+
+    speed = 3.5f;
 }
 
 void Enemy::tick(float deltaTime)
 {
-    screenPos = Vector2Subtract(Enemy.getWorldPos(), knight.getWorldPos())
+    if (!getAlive()) return;
+    //get vector between enemy and character
+    velocity = Vector2Subtract(target->getScreenPos(), getScreenPos());
+  
     BaseCharacter::tick(deltaTime);
+
+    
+}
+
+Vector2 Enemy::getScreenPos(){
+    return Vector2Subtract(worldPos, target->getWorldPos());
 }
 

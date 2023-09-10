@@ -23,10 +23,10 @@ int main(){
         Prop{Vector2{800.f, 1000.f}, LoadTexture("nature_tileset/Log.png")}
     };
 
-     Enemy enemies[2]{
-        Enemy{Vector2{}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")},
-        Enemy{Vector2{}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")}
-    };
+     
+        Enemy goblin = Enemy{Vector2{1400.f, 600.f}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")};
+        //Enemy{Vector2{1500.f, 600.f}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")}
+    
     
 
     SetTargetFPS(60);
@@ -64,11 +64,13 @@ int main(){
             }
         }
 
-        for(auto enemy : enemies)
-        {
-            enemy.tick(GetFrameTime());
-            enemy.setTarget(&knight);
-        }
+     
+        
+            goblin.setTarget(&knight);
+            goblin.tick(GetFrameTime());
+            
+        
+        
 
         EndDrawing();
     }
