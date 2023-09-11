@@ -27,6 +27,17 @@ int main(){
      
         Enemy goblin = Enemy{Vector2{1400.f, 600.f}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")};
         //Enemy{Vector2{1500.f, 600.f}, LoadTexture("characters/goblin_idle_spritesheet.png"), LoadTexture("characters/goblin_run_spritesheet.png")}
+
+        Enemy slime = Enemy{Vector2{1800.f, 600.f}, LoadTexture("characters/slime_idle_spritesheet.png"), LoadTexture("characters/slime_run_spritesheet.png")};
+
+        Enemy* enemies[]
+        {
+            &goblin, &slime
+        }; 
+
+        for(auto enemy : enemies){
+            enemy->setTarget(&knight);
+        }
     
     
 
@@ -78,14 +89,16 @@ int main(){
             }
         }
 
-     
-        
-            goblin.setTarget(&knight);
-            goblin.tick(GetFrameTime());
+            for(auto enemy : enemies)
+            { enemy->tick(GetFrameTime()); }
             
         if(IsMouseButtonPressed(MOUSE_LEFT_BUTTON) == true){
-            if(CheckCollisionRecs(goblin.GetCollisionRec(), knight.GetCollisionRec()) == true){
-                goblin.setAlive(false);
+            for(auto enemy : enemies)
+            {
+            if(CheckCollisionRecs(enemy->GetCollisionRec(), knight.GetCollisionRec()) == true)
+            {
+                enemy->setAlive(false);
+            } 
             }
         }
         
